@@ -29,12 +29,25 @@ The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
 # Building Docker image
-At the root of the project run
+Go to the directory that has your Dockerfile and run the following command to build the Docker image. The -t flag lets you tag your image so it's easier to find later using the docker images command:
 
-    >docker image build -t YOUR_NAME .
+    docker build . -t <your name>/node-web-app
 
-This will create a docker image using the `Dockerfile` with the image name `YOUR_NAME`
+Your image will now be listed by Docker:
 
-Run container
+    $ docker images
 
-    >docker run YOUR_NAME
+    # Example
+    REPOSITORY                      TAG        ID              CREATED
+    node                            16         3b66eb585643    5 days ago
+    <your username>/node-web-app    latest     d64d3505b0d2    1 minute ago
+    
+# Run the image
+Running your image with -d runs the container in detached mode, leaving the container running in the background. The -p flag redirects a public port to a private port inside the container. Run the image you previously built:
+
+    docker run -p 49160:8080 -d <your username>/node-web-app
+
+# Shut down the image
+In order to shut down the app we started, we run the kill command. This uses the container's ID, which in this example was ecce33b30ebf.
+
+    docker kill <container id>
