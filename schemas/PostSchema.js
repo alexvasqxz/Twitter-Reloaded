@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const PostSchema = new Schema({
     content: {
         type: String,
+        maxlength: 300,
         trim: true
     },
     postedBy: {
