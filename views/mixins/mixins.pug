@@ -1,0 +1,8 @@
+mixin createPostForm(userLoggedIn)
+    .postFormContainer
+        .usernameContainer
+            h5 #{userLoggedIn.username}
+        .textareaContainer
+            textarea#postTextarea(placeholder="What's happening?")
+            .buttonsContainer
+                button#submitPostButton(disabled="") Post
