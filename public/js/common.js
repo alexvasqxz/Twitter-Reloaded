@@ -53,7 +53,7 @@ $("#replyModal").on("show.bs.modal", (event) => {
     $("#submitReplyButton").data("id", postId);
 
     $.get("/api/posts/" + postId, results => {
-        outputPost(results, $("#originalPostContainer"))
+        outputPost(results.postData, $("#originalPostContainer"))
     })
 })
 
@@ -61,6 +61,16 @@ $("#replyModal").on("show.bs.modal", (event) => {
 $("#replyModal").on("hidden.bs.modal", (event) => {
     $("#originalPostContainer").html("");
 })
+
+$(document).on("click", ".post", (event) => {
+    var element = $(event.target);
+    console.log(element.hasClass("postButtonContainer"));
+    var postId = getPostIdFromElement(element);
+ 
+    if(postId !== undefined && !element.hasClass("far fa-comment")) {
+        window.location.href = '/post/' + postId;
+    }
+});
 
 function getPostIdFromElement(element) {
     var isRoot = element.hasClass("post");
@@ -72,7 +82,7 @@ function getPostIdFromElement(element) {
     return postId;
 }
 
-function createPostHtml(postData) {
+function createPostHtml(postData, largeFont = false) {
     
     var postedBy = postData.postedBy;
 
@@ -82,9 +92,10 @@ function createPostHtml(postData) {
 
     var displayName = postedBy.firstName + " " + postedBy.lastName;
     var timestamp = timeDifference(new Date(), new Date(postData.createdAt));
+    var largeFontClass = largeFont ? "largeFont" : "";
 
     var replyFlag = "";
-    if (postData.replyTo) {
+    if (postData.replyTo && postData.replyTo._id) {
         if(!postData.replyTo._id){
             return alert("Reply to is not populated");
         }
@@ -98,7 +109,7 @@ function createPostHtml(postData) {
                     </div>`;
     }
 
-    return `<div class='post' data-id='${postData._id}'>
+    return `<div class='post ${largeFontClass}' data-id='${postData._id}'>
                 <div class='postActionContainer'>
                     
                 </div>
@@ -177,4 +188,21 @@ function outputPost(results, container) {
     if (results.length == 0) {
         container.append("<span class='noResults'>Nothing to show</span>");
     }
+}
+
+function outputPostWithReplies(results, container) {
+    container.html("");
+
+    if(results.replyTo !== undefined && results.replyTo._id !== undefined) {
+        var html = createPostHtml(results.replyTo);
+        container.append(html);
+    }
+
+    var mainPostHtml = createPostHtml(results.postData, true);
+    container.append(mainPostHtml);
+
+    results.replies.forEach(reply => {
+        var html = createPostHtml(reply);
+        container.append(html);
+    })
 }
