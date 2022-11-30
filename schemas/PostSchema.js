@@ -14,7 +14,11 @@ const PostSchema = new Schema({
     },
     pinned: {
         type: Boolean
-    }
+    },
+    replyTo: {
+        type: Schema.Types.ObjectId,
+        ref: 'Post'
+    },
 }, { timestamps: true });
 
 var Post = mongoose.model('Post', PostSchema);
