@@ -10,7 +10,27 @@ Main characteristics to be implemented
 </ul>
 
 # Event Dashboard
-Every action triggered by Twitter reloaded should be registered as a new event at the event dashboard.
+<ul>
+    <li>Every action triggered by Twitter reloaded should be registered as a new event at the event dashboard. </li>
+    <li>Type of action: create tweet / reply tweet / open application </li>
+    <li>User who did the action </li>
+    <li>Timestamp </li>
+    <li>What is the user who registered more events during the day? </li>
+    <li>What is the most commented tweet of the day? </li>
+    <li>How many users opened our application during the day? </li>
+</ul>
+
+# 5 SOLID Practices
+
+Testing
+
+# 2 Design Patterns
+
+Testing
+
+# Design Patterns Class Diagram
+
+Testing
 
 ## Available Scripts
 
