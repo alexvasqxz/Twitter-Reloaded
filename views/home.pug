@@ -6,5 +6,21 @@ block content
 
     +createReplyModal(userLoggedIn)
 
+block analytics
+    .stats
+        br
+        h5 #{totalUsers} 
+        h6 Total users in our website
+        h5 #{newUsersToday} 
+        h6 Users registered today
+        h5 #{totalLogs} 
+        h6 Total logins
+        h5 #{newLogstoday} 
+        h6 Logins performed today
+        h5 #{totalPosts} 
+        h6 Total posts
+        h5 #{newPostsToday} 
+        h6 Posts created today
+
 block scripts
     script(src="/js/home.js")
