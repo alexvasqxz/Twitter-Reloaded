@@ -21,14 +21,21 @@ Main characteristics to be implemented
 </ul>
 
 # 5 SOLID Practices
-
-Testing
+The way the 5 SOLID Practices were implemented in this project were:
+<ul>
+    <li>SRP (Single Responsibility Principle): File "registerRoutes.js" uses two different functions that are different from each other and each one serves a particular functionality. This file uses this principle given that each of the functions in this class are unique and serve a specific purpose. </li>
+    <li>OCP (Open Close Principle): File "posts.js" gives the developer the liberty of adding new functions and new code without altering the functions that are already in place; the functionality of the previous functions stay the same even if we add new code. </li>
+    <li>LSP (The Liskov Substitution Principle): File "app.js" uses this principle given that the router behaves in a way in which the behavior of a subclass is not altered by the other subclasses of the superclass. The behavior of the functions is not altered when another one is being used. </li>
+    <li>ISP (Interface Segregation Principle): File "app.js" uses this SOLID Principle given that each segment of code is divided by a function that is specifically used for a single variable, and through this principle, we can avoid using functions that are not needed for the app execution. </li>
+    <li>DIP (Dependency Inversion Principle): File "loginRoutes.js" uses this principle given that the high-level modules, the post function in this case, does not depend on the low-level modules; this function is going to run regardless the low-level modules. </li>
+</ul>
 
 # 2 Design Patterns
 The Design Patterns implemented in this project were:
 <ul>
-<li>Chain of Responsibility: The file "posts.js" uses this design pattern given that there's a different petition for each get, in order to use a different request depending on the function and the ID of the post that is required. </li>
-<li>Strategy: The file "database.js" uses this design pattern given that this file uses the class Database to abstract an algorithm that will later be used for context creation in the application. </li>
+    <li>Chain of Responsibility: The file "posts.js" uses this design pattern given that there's a different petition for each get, in order to use a different request depending on the function and the ID of the post that is required. </li>
+    <li>Strategy: The file "database.js" uses this design pattern given that this file uses the class Database to abstract an algorithm that will later be used for context creation in the application. </li>
+</ul>
 
 # Design Patterns Class Diagram
 
