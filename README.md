@@ -25,8 +25,10 @@ Main characteristics to be implemented
 Testing
 
 # 2 Design Patterns
-
-Testing
+The Design Patterns implemented in this project were:
+<ul>
+<li>Chain of Responsibility: The file "posts.js" uses this design pattern given that there's a different petition for each get, in order to use a different request depending on the function and the ID of the post that is required. </li>
+<li>Strategy: The file "database.js" uses this design pattern given that this file uses the class Database to abstract an algorithm that will later be used for context creation in the application. </li>
 
 # Design Patterns Class Diagram
 
