@@ -39,7 +39,7 @@ The Design Patterns implemented in this project were:
 
 # Design Patterns Class Diagram
 
-Testing
+![alt text](https://github.com/alexvasqxz/Twitter-Reloaded/blob/main/ClassDiagram.jpeg)
 
 ## Available Scripts
 
@@ -80,6 +80,4 @@ Running your image with -d runs the container in detached mode, leaving the cont
 In order to shut down the app we started, we run the kill command. This uses the container's ID, which in this example was ecce33b30ebf.
 
     $ docker kill <container id>
-   
-# Class Diagram
-![alt text](https://github.com/alexvasqxz/Twitter-Reloaded/blob/main/ClassDiagram.jpeg)
+  
